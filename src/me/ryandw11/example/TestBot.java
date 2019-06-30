@@ -11,7 +11,7 @@ public class TestBot implements CommandExecutor {
 	
 	public static void main(String[] args) throws LoginException {
 		JDA jda = new JDABuilder("NTkzOTUzNzAzMzU1MDg4OTAz.XRVYiw.5nhfz7sxGc8Ns-REQAE1sg0xFuc")
-				.build();
+				.build(); //Fill in with your own key. (This key does not exist).
 		JDACommandHandler jdacmd = new JDACommandHandler(jda, "!");
 		String[] ales = {"ping", "pop"};
 		jdacmd.register(new ExampleCommand(), ales);
