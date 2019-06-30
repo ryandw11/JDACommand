@@ -22,22 +22,42 @@ public class JDACommand {
 		this.message = message;
 	}
 	
+	/**
+	 * Get which of the aliases were used.
+	 * @return The name
+	 */
 	public String getName() {
 		return name;
 	}
 	
+	/**
+	 * Get the arguments of the command
+	 * @return
+	 */
 	public List<String> getArgs(){
 		return args;
 	}
 	
+	/**
+	 * Get the author of the message.
+	 * @return the author
+	 */
 	public User getAuthor() {
 		return author;
 	}
 	
+	/**
+	 * Get the channel type it was sent in.
+	 * @return Get the channel type.
+	 */
 	public ChannelType getChannelType() {
 		return getType;
 	}
 	
+	/**
+	 * Get the message that was sent.
+	 * @return
+	 */
 	public Message getMessage() {
 		return message;
 	}
