@@ -1,4 +1,4 @@
-package me.ryandw11.example;
+package me.ryandw11.jdacommand.example;
 
 import me.ryandw11.jdacommand.Command;
 import me.ryandw11.jdacommand.JDACommand;
@@ -26,8 +26,7 @@ public class ExampleCommand {
 		cmd.getMessage().delete().queue();
 		chan.sendMessage("Your message has been deleted!").queue();
 	}
-	
-	@SuppressWarnings("static-access")
+
 	@Command(alias = {"delete"})
 	public void delete(JDACommand cmd) {
 		if(cmd.getArgs().size() != 1) {
@@ -40,7 +39,7 @@ public class ExampleCommand {
 			MessageChannel chan = cmd.getMessage().getChannel();
 			MessageHistory msgh;
 			try {
-				msgh = chan.getHistory().getHistoryAround(chan, cmd.getArgs().get(0)).limit(10).complete();
+				msgh = MessageHistory.getHistoryAround(chan, cmd.getArgs().get(0)).limit(10).complete();
 			}
 			catch(IllegalArgumentException ex) {
 				chan.sendMessage("That is not a valid message id!").queue();

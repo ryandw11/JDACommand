@@ -1,4 +1,4 @@
-package me.ryandw11.example;
+package me.ryandw11.jdacommand.example;
 
 import javax.security.auth.login.LoginException;
 
@@ -13,7 +13,7 @@ public class TestBot {
 				.build();
 		JDACommandHandler jdacmd = new JDACommandHandler(jda, "!");
 		jdacmd.register(new ExampleCommand());
-		jdacmd.finalize();
+		jdacmd.finalizeCommands();
 	}
 	
 	

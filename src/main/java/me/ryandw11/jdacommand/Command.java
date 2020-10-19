@@ -8,12 +8,12 @@ import java.lang.annotation.Target;
 /**
  * Declare a command in a class using this. Use alias = {} to denote the command name and it's aliases.<br>
  * <b>The command must have a JDACommand parameter</b>
- * @author Ryandw11
  *
+ * @author Ryandw11
  */
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Command {
-	String[] alias();
+    String[] alias();
 }
