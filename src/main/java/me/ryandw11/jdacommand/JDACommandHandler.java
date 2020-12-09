@@ -2,8 +2,8 @@ package me.ryandw11.jdacommand;
 
 import me.ryandw11.jdacommand.backend.CmdHolder;
 import me.ryandw11.jdacommand.backend.CommandFire;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.lang.reflect.Method;
 import java.util.*;

@@ -1,8 +1,8 @@
 package me.ryandw11.jdacommand.backend;
 
 import me.ryandw11.jdacommand.JDACommand;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;

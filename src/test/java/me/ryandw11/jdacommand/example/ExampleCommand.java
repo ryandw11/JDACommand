@@ -2,9 +2,9 @@ package me.ryandw11.jdacommand.example;
 
 import me.ryandw11.jdacommand.Command;
 import me.ryandw11.jdacommand.JDACommand;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageChannel;
-import net.dv8tion.jda.core.entities.MessageHistory;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageChannel;
+import net.dv8tion.jda.api.entities.MessageHistory;
 
 public class ExampleCommand {
 	/*

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.ryandw11</groupId>
     <artifactId>JDACommand</artifactId>
-    <version>1.1</version>
+    <version>1.1.1-SNAPSHOT</version>
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
@@ -74,19 +74,16 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.8.3_464</version>
+            <version>4.2.0_168</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
 
     <repositories>
         <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
             <id>jcenter</id>
             <name>jcenter-bintray</name>
-            <url>http://jcenter.bintray.com</url>
+            <url>https://jcenter.bintray.com</url>
         </repository>
     </repositories>
 </project>
