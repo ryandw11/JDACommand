@@ -1,29 +1,30 @@
 package me.ryandw11.jdacommand;
 
 import me.ryandw11.jdacommand.backend.CmdHolder;
-import me.ryandw11.jdacommand.backend.CommandFire;
+import me.ryandw11.jdacommand.backend.CommandListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.internal.utils.JDALogger;
 
 import java.lang.reflect.Method;
 import java.util.*;
 
 public class JDACommandHandler extends ListenerAdapter {
 
-    private JDA jda;
-    private String prefix;
-    private Map<CmdHolder, String[]> cmds;
+    private final JDA jda;
+    private final String prefix;
+    private final Map<CmdHolder, String[]> commandMap;
 
     /**
-     * The command handler.
+     * Construct the command handler with your instance of JDA and the prefix you would like to use.
      *
      * @param jda    Your instance of jda.
-     * @param prefix Your command prefix.
+     * @param prefix The prefix you would like to use for your command.
      */
     public JDACommandHandler(JDA jda, String prefix) {
         this.jda = jda;
         this.prefix = prefix;
-        cmds = new HashMap<>();
+        commandMap = new HashMap<>();
     }
 
     /**
@@ -37,9 +38,9 @@ public class JDACommandHandler extends ListenerAdapter {
             if (msd.isAnnotationPresent(Command.class)) {
                 if (msd.getParameters()[0].getType() == JDACommand.class) {
                     Command cmd = msd.getAnnotation(Command.class);
-                    cmds.put(new CmdHolder(msd, clazz), cmd.alias());
+                    commandMap.put(new CmdHolder(msd, clazz), cmd.alias());
                 } else {
-                    System.out.println("[JDACommandHandler] Notice: Can not find the JDACommand parameter on a command method!");
+                    JDALogger.getLog(JDACommandHandler.class).error("Cannot find the JDACommand parameter on a command method!");
                 }
             }
         }
@@ -49,7 +50,8 @@ public class JDACommandHandler extends ListenerAdapter {
      * Finalize the commands after they have all been registered.
      */
     public void finalizeCommands() {
-        jda.addEventListener(new CommandFire(prefix, cmds));
+        jda.addEventListener(new CommandListener(prefix, commandMap));
+        JDALogger.getLog(JDACommandHandler.class).info("Finalized JDA Commands and added event listener.");
     }
 
 

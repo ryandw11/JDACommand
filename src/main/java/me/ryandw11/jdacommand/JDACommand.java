@@ -1,19 +1,29 @@
 package me.ryandw11.jdacommand;
 
-import net.dv8tion.jda.api.entities.ChannelType;
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.entities.*;
 
 import java.util.List;
 
+/**
+ * This class represents a command that was sent.
+ */
 public class JDACommand {
 
-    private String name;
-    private List<String> args;
-    private User author;
-    private ChannelType getType;
-    private Message message;
+    private final String name;
+    private final List<String> args;
+    private final User author;
+    private final ChannelType getType;
+    private final Message message;
 
+    /**
+     * This is done internally by the JDACommand library.
+     *
+     * @param name    The name of the command.
+     * @param args    The arguments.
+     * @param author  The author.
+     * @param type    The type.
+     * @param message The message sent.
+     */
     public JDACommand(String name, List<String> args, User author, ChannelType type, Message message) {
         this.name = name;
         this.args = args;
@@ -43,7 +53,7 @@ public class JDACommand {
     /**
      * Get the author of the message.
      *
-     * @return the author
+     * @return The author that sent the command.
      */
     public User getAuthor() {
         return author;
@@ -65,6 +75,24 @@ public class JDACommand {
      */
     public Message getMessage() {
         return message;
+    }
+
+    /**
+     * Get the message channel where the command was sent.
+     *
+     * @return The message channel where the message was sent.
+     */
+    public MessageChannel getChannel() {
+        return message.getChannel();
+    }
+
+    /**
+     * Get the guild where the command was sent.
+     *
+     * @return The guild where the command was sent.
+     */
+    public Guild getGuild() {
+        return message.getGuild();
     }
 
 }

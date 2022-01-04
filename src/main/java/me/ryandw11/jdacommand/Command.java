@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Declare a command in a class using this. Use alias = {} to denote the command name and it's aliases.<br>
+ * Declare a command in a class using this. Use alias = {} to denote the command name and its aliases.<br>
  * <b>The command must have a JDACommand parameter</b>
  *
  * @author Ryandw11
