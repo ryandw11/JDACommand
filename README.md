@@ -1,5 +1,7 @@
 # JDACommand
-JDACommand is a very simple command library for JDA (Java Discord API). (This is not for slash commands.)
+JDACommand is a very simple command library for JDA (Java Discord API). (This is not for slash commands.)  
+  
+JDACommand 1.3.0 requires JDA 6.x and Java 8 at minimum.
 ## Implementation
 ### Maven
 ![Maven Badge](https://www.ryandw11.com/api/repo-badge/maven-releases/me.ryandw11/JDACommand)  
@@ -9,7 +11,7 @@ Dependency:
 <dependency>
     <groupId>me.ryandw11</groupId>
     <artifactId>JDACommand</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 Repository:
@@ -27,8 +29,8 @@ Using JDACommand is very simple.
 import me.ryandw11.jdacommand.Command;
 import me.ryandw11.jdacommand.JDACommand;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.MessageHistory;
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 
 public class ExampleCommands {
     @Command(alias = {"ping", "par", "works"})
@@ -49,7 +51,8 @@ public class ExampleCommands {
 ```java
 public class MainBot {
     public static void main(String[] args) {
-        JDA jda = JDABuilder.createDefault(/* tokey */)
+        JDA jda = JDABuilder.createDefault(/* token */)
+                .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .build();
         JDACommandHandler jdacmd = new JDACommandHandler(jda, "!");
         
